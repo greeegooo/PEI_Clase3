@@ -1,0 +1,54 @@
+"use strict";
+var __extends = (this && this.__extends) || (function () {
+    var extendStatics = function (d, b) {
+        extendStatics = Object.setPrototypeOf ||
+            ({ __proto__: [] } instanceof Array && function (d, b) { d.__proto__ = b; }) ||
+            function (d, b) { for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p]; };
+        return extendStatics(d, b);
+    }
+    return function (d, b) {
+        extendStatics(d, b);
+        function __() { this.constructor = d; }
+        d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
+    };
+})();
+Object.defineProperty(exports, "__esModule", { value: true });
+var Producto = /** @class */ (function () {
+    function Producto(nombre, precio) {
+        this._nombre = nombre;
+        this._precio = precio;
+    }
+    Object.defineProperty(Producto.prototype, "nombre", {
+        get: function () { return this._nombre; },
+        enumerable: true,
+        configurable: true
+    });
+    Object.defineProperty(Producto.prototype, "precio", {
+        get: function () {
+            return this._precio;
+        },
+        set: function (nuevoPrecio) {
+            this._precio = nuevoPrecio;
+        },
+        enumerable: true,
+        configurable: true
+    });
+    return Producto;
+}());
+exports.Producto = Producto;
+var Lacteo = /** @class */ (function (_super) {
+    __extends(Lacteo, _super);
+    function Lacteo() {
+        return _super !== null && _super.apply(this, arguments) || this;
+    }
+    return Lacteo;
+}(Producto));
+exports.Lacteo = Lacteo;
+var Carne = /** @class */ (function (_super) {
+    __extends(Carne, _super);
+    function Carne() {
+        return _super !== null && _super.apply(this, arguments) || this;
+    }
+    return Carne;
+}(Producto));
+exports.Carne = Carne;
