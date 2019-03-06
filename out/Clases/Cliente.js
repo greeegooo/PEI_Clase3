@@ -45,7 +45,7 @@ var Cliente = /** @class */ (function () {
         this._carrito = []; //Limpiamos el carrito
         console.log("Compra realizada");
         console.log("Se compro:");
-        compra.productos.forEach(function (p) { console.log(p.nombre + " " + p.precio); });
+        compra.productos.forEach(function (p) { console.log(p.nombre + " " + p.total()); });
         console.log("Total: " + compra.total);
     };
     Cliente.prototype.totalComprado = function () {
@@ -59,3 +59,4 @@ var Cliente = /** @class */ (function () {
     return Cliente;
 }());
 exports.Cliente = Cliente;
+//# sourceMappingURL=Cliente.js.map

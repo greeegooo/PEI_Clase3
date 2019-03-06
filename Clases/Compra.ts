@@ -2,7 +2,8 @@ import { Producto } from "./Producto";
 
 export class Compra{
 
-    total: number;
+    //Attr
+    total: number; // Puede estar como prop o puede ser calculado
     productos: Producto[];
     fecha: Date;
 }

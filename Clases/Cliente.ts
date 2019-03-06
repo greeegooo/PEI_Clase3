@@ -3,39 +3,46 @@ import { Compra } from "./Compra";
 
 export class Cliente {
 
-    //Props
-    private _carrito: Producto[];
-    private _compras: Compra[];
-    private _nombre: string;
-    private _dinero: number = 100;
+    //Attr
+    protected _carrito: Producto[];
+    protected _compras: Compra[];
+    protected _nombre: string;
+    protected _dinero: number;
 
     //Ctor
     constructor(nombre: string) { 
         this._nombre = nombre;
         this._carrito = [];
         this._compras = [];
+        this._dinero = 0;
         console.log("Cliente creado");
     }
 
     //Getters & Setters
     get carrito(): Producto[] { return this._carrito; }
     get nombre(): string { return this._nombre; }
+    
+    get dinero(): number { return this._dinero; }
+    set dinero(cantidad: number) { this._dinero = cantidad; }
 
     //Methods
-    agregarAlCarrito(prod: Producto) {
-        this._carrito.push(prod);
+    public agregarAlCarrito(producto: Producto): void {
+        this._carrito.push(producto);
         console.log("Producto agregado");
     }
 
-    comprar(){
+    public comprar() : void {
 
-        let totalAComprar = this._carrito.map(x => x.precio).reduce((sum, precio) => sum + precio);
+        let totalDeCompra = 
+            this._carrito
+            .map(x => x.total())
+            .reduce((sum, precio) => sum + precio);
 
-        this.validarCompra(totalAComprar);
+        this.validarCompra(totalDeCompra);
 
         let compra = new Compra();
         compra.productos = this._carrito;
-        compra.total = totalAComprar;
+        compra.total = totalDeCompra;
         compra.fecha = new Date();
 
         this._compras.push(compra); //Lo agregamos al historial
@@ -44,27 +51,19 @@ export class Cliente {
 
         console.log("Compra realizada");
         console.log("Se compro:")
-        compra.productos.forEach(p => { console.log(p.nombre + " " + p.precio); });
+        compra.productos.forEach(p => { console.log(p.nombre + " " + p.total()); });
         console.log("Total: " + compra.total);
     }
 
-    private validarCompra(totalAComprar: number){
+    public totalComprado(): number {
+        return this._compras.map(x => x.total).reduce((sum, total) => sum + total);
+    }
 
-        if(this._dinero < totalAComprar) {
+    private validarCompra(totalDeCompra: number) : void{
+
+        if(this._dinero < totalDeCompra) {
 
             throw new Error("No te alcanza el dinero.");
         }  
     }
-
-    totalComprado(): number {
-        return this._compras.map(x => x.total).reduce((sum, total) => sum + total);
-    }
-}
-
-export class Mayorista extends Cliente {
-    
-}
-
-export class Minorista extends Cliente {
-    
 }

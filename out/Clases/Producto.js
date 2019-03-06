@@ -59,3 +59,4 @@ var Carne = /** @class */ (function (_super) {
     return Carne;
 }(Producto));
 exports.Carne = Carne;
+//# sourceMappingURL=Producto.js.map
