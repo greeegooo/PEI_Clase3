@@ -12,7 +12,7 @@ var __extends = (this && this.__extends) || (function () {
         d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
     };
 })();
-Object.defineProperty(exports, "__esModule", { value: true });
+exports.__esModule = true;
 var Producto = /** @class */ (function () {
     //Ctor
     function Producto(nombre, precio, cantidad) {
@@ -22,24 +22,36 @@ var Producto = /** @class */ (function () {
     }
     Object.defineProperty(Producto.prototype, "nombre", {
         //Getters & Setters
-        get: function () { return this._nombre; },
+        get: function () {
+            return this._nombre;
+        },
         enumerable: true,
         configurable: true
     });
     Object.defineProperty(Producto.prototype, "precio", {
-        get: function () { return this._precio; },
-        set: function (nuevoPrecio) { this._precio = nuevoPrecio; },
+        get: function () {
+            return this._precio;
+        },
+        set: function (nuevoPrecio) {
+            this._precio = nuevoPrecio;
+        },
         enumerable: true,
         configurable: true
     });
     Object.defineProperty(Producto.prototype, "cantidad", {
-        get: function () { return this._cantidad; },
-        set: function (cantidad) { this._cantidad = cantidad; },
+        get: function () {
+            return this._cantidad;
+        },
+        set: function (cantidad) {
+            this._cantidad = cantidad;
+        },
         enumerable: true,
         configurable: true
     });
     //Methods
-    Producto.prototype.total = function () { return this._precio * this._cantidad; };
+    Producto.prototype.total = function () {
+        return this._precio * this._cantidad;
+    };
     return Producto;
 }());
 exports.Producto = Producto;

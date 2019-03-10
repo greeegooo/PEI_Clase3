@@ -6,3 +6,4 @@ var Compra = /** @class */ (function () {
     return Compra;
 }());
 exports.Compra = Compra;
+//# sourceMappingURL=Compra.js.map
