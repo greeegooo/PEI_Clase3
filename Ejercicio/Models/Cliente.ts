@@ -128,4 +128,8 @@ export class Cliente {
 			throw new Error('No te alcanza el dinero.');
 		}
 	}
+
+	public precioPorPromocion(precio: number): number {
+		throw new Error('Method not implemented.');
+	}
 }

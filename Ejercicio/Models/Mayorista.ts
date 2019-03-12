@@ -23,4 +23,8 @@ export class Mayorista extends Cliente {
 	}
 
 	validarCompra(totalDeCompra: number): void {}
+
+	precioPorPromocion(precio: number): number {
+		return precio - precio * 0.15;
+	}
 }
