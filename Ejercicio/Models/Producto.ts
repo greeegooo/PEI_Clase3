@@ -6,7 +6,6 @@ export class Producto {
 	private _descripcion: string;
 	private _precio: number;
 	private _cantidad: number;
-
 	private _promocion: IPromocion;
 
 	//Ctor

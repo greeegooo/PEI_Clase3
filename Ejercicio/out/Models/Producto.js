@@ -2,14 +2,18 @@
 Object.defineProperty(exports, "__esModule", { value: true });
 class Producto {
     //Ctor
-    constructor(nombre, precio, cantidad) {
-        this._nombre = nombre;
+    constructor(descripcion, precio, promocion, cantidad) {
+        this._descripcion = descripcion;
         this._precio = precio;
         this._cantidad = cantidad ? cantidad : 1;
+        this._promocion = promocion;
     }
     //Getters & Setters
-    get nombre() {
-        return this._nombre;
+    get descripcion() {
+        return this._descripcion;
+    }
+    set descripcion(descripcion) {
+        this._descripcion = descripcion;
     }
     get precio() {
         return this._precio;
@@ -24,15 +28,12 @@ class Producto {
         this._cantidad = cantidad;
     }
     //Methods
-    total() {
+    total(cliente) {
+        return this._promocion.aplicar(cliente, this);
+    }
+    totalSinPromocion() {
         return this._precio * this._cantidad;
     }
 }
 exports.Producto = Producto;
-class Lacteo extends Producto {
-}
-exports.Lacteo = Lacteo;
-class Carne extends Producto {
-}
-exports.Carne = Carne;
 //# sourceMappingURL=Producto.js.map
